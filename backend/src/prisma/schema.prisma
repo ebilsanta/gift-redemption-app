@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model StaffTeam {
+  id Int @id @default(autoincrement())
+  staffPassId String @unique @map("staff_pass_id")
+  teamName String @map("team_name")
+  createdAt DateTime @default(now())
+
+  @@map("staff_team")
+}
+
+model Redemption {
+  id Int @id @default(autoincrement())
+  teamName String @unique @map("team_name")
+  redeemedAt DateTime @default(now())
+  @@map("redemption")
+}
