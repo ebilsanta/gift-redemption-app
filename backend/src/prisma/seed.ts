@@ -19,7 +19,7 @@ const createStaffTeam = async (input: StaffInput) => {
   }
 };
 
-const addStaffTeamFromLine = async (line: string) => {
+const addStaffFromLine = async (line: string) => {
   const [staffPassId, teamName, createdAt] = line.split(',');
   await createStaffTeam({
     staffPassId,
@@ -28,16 +28,21 @@ const addStaffTeamFromLine = async (line: string) => {
   });
 };
 
-const addStaffTeamFromCSVFile = async (csvFilePath: string) => {
+const addStaffFromCSVFile = async (csvFilePath: string) => {
   const readStream = fs.createReadStream(csvFilePath);
   const rl = readline.createInterface({
     input: readStream,
     crlfDelay: Infinity,
   });
+  let isHeader = true;
 
   rl.on('line', async (line: string) => {
     try {
-      await addStaffTeamFromLine(line);
+      if (isHeader) {
+        isHeader = false;
+        return;
+      }
+      await addStaffFromLine(line);
     } catch (error) {
       console.error('Error processing line:', error);
     }
@@ -57,7 +62,7 @@ const addStaffTeamFromCSVFile = async (csvFilePath: string) => {
 const main = async () => {
   try {
     const csvFilePath = 'data/staff-id-to-team-mapping-long.csv';
-    await addStaffTeamFromCSVFile(csvFilePath);
+    await addStaffFromCSVFile(csvFilePath);
   } catch (error) {
     console.error('Error:', error);
   } finally {

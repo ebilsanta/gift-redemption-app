@@ -4,7 +4,11 @@ export interface StaffInput {
   createdAt: number;  
 }
 
-export interface StaffTeam extends StaffInput {
-    id: number;
+export interface StaffWithRedeemedAt {
+  id: number;
+  staff_pass_id: string;
+  team_name: string;
+  redeemed_at: Date | null;
+  created_at: Date;  
 }
 

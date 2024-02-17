@@ -1,3 +1,41 @@
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model Staff {
+//   id Int @id @default(autoincrement())
+//   staffPassId String @unique @map("staff_pass_id")
+//   team Team @relation(fields: [teamId], references: [id])
+//   teamId Int
+//   createdAt DateTime @default(now())
+
+//   @@map("staff")
+// }
+
+// model Team {
+//   id Int @id @default(autoincrement())
+//   teamName String @unique @map("team_name")
+//   staffs Staff[]
+//   redemption Redemption?
+//   createdAt DateTime @default(now())
+
+//   @@map("team")
+// }
+
+// model Redemption {
+//   id Int @id @default(autoincrement())
+//   team Team @relation(fields: [teamId], references: [id])
+//   teamId Int @unique
+//   redeemedAt DateTime @default(now())
+
+//   @@map("redemption")
+// }
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,7 +49,7 @@ model Staff {
   id Int @id @default(autoincrement())
   staffPassId String @unique @map("staff_pass_id")
   teamName String @map("team_name")
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map("created_at")
 
   @@map("staff")
 }
@@ -19,6 +57,8 @@ model Staff {
 model Redemption {
   id Int @id @default(autoincrement())
   teamName String @unique @map("team_name")
-  redeemedAt DateTime @default(now())
+  redeemedAt DateTime @default(now()) @map("redeemed_at")
+
   @@map("redemption")
 }
+

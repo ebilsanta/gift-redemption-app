@@ -1,11 +1,18 @@
 import { Router, Request, Response, NextFunction } from 'express';
+import { createRedemption } from './redemption.service';
 
 const router = Router();
 
 router.post(
   '/',
   async (req: Request, res: Response, next: NextFunction) => {
-    res.status(201).json({'msg': 'ok'});
+    try {
+      const result = await createRedemption(req.body);
+      res.status(201).json(result);
+    } catch (error) {
+      next(error);
+    }
+    
   }
 );
 
