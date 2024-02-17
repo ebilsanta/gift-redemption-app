@@ -1,8 +1,8 @@
-import { Prisma, Staff } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import prisma from '../../../prisma/prisma-client';
 import HttpException from '../../models/http-exception.model';
 import { staffMapper, staffRedemptionMapper } from './staff.mapper';
-import { StaffInput, StaffWithRedeemedAt } from './staff.model';
+import { StaffInput } from './staff.model';
 
 const buildPrismaGetQuery = (query: any) => {
   const prismaQuery: Prisma.StaffFindManyArgs = {
@@ -22,7 +22,7 @@ export const getStaff = async (query: any) => {
   if (query.include_redeemed === 'true') {
     const offset = Number(query.offset) || 0;
     const limit = Number(query.limit) || 10;
-    const prefix = query.prefix || '%';
+    const prefix = `${query.prefix}%`;
     const allStaffWithRedeemedAt = await prisma.$queryRaw<[]>`
       SELECT s.id, s.staff_pass_id, s.team_name, r.redeemed_at, s.created_at
       FROM Staff s
@@ -31,6 +31,7 @@ export const getStaff = async (query: any) => {
       LIMIT ${limit}
       OFFSET ${offset};
     `;
+    
     return allStaffWithRedeemedAt.map((staff) => staffRedemptionMapper(staff));
   }
   const prismaQuery = buildPrismaGetQuery(query);
