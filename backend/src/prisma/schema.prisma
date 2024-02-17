@@ -7,13 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model StaffTeam {
+model Staff {
   id Int @id @default(autoincrement())
   staffPassId String @unique @map("staff_pass_id")
   teamName String @map("team_name")
   createdAt DateTime @default(now())
 
-  @@map("staff_team")
+  @@map("staff")
 }
 
 model Redemption {

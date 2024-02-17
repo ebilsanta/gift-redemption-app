@@ -2,14 +2,14 @@ import fs from 'fs';
 import readline from 'readline';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '../app/models/http-exception.model';
-import { addStaffToTeam } from '../app/routes/team/team.service';
-import { StaffTeamInput } from '../app/routes/team/staff-team.model';
+import { addStaff } from '../app/routes/staff/staff.service';
+import { StaffInput } from '../app/routes/staff/staff.model';
 
 const prisma = new PrismaClient();
 
-const createStaffTeam = async (input: StaffTeamInput) => {
+const createStaffTeam = async (input: StaffInput) => {
   try {
-    return await addStaffToTeam(input);
+    return await addStaff(input);
   } catch (error) {
     if (error instanceof HttpException) {
       console.error(error.message);
@@ -48,7 +48,7 @@ const addStaffTeamFromCSVFile = async (csvFilePath: string) => {
   });
 
   rl.on('close', () => {
-    console.log('CSV file processing completed.');
+    console.log('Finish reading CSV file.');
     readStream.close();
     rl.close();
   });
