@@ -12,7 +12,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
 
   return (
     <TextField
-      label="Search"
+      label="Search for staff"
       variant="outlined"
       onChange={handleSearchChange}
       fullWidth
