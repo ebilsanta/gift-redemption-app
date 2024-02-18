@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -14,10 +13,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": "./api",
     "paths": {},
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node", "jest"],
+    "composite": true
   },
   "files": [],
-  "include": [],
+  "include": [
+    "src/tests/*.ts",
+    "src/tests/**/*.test.ts",
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"

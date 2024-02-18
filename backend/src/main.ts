@@ -23,13 +23,7 @@ app.use(
     next: express.NextFunction,
   ) => {
     // @ts-ignore
-    if (err && err.name === 'UnauthorizedError') {
-      return res.status(401).json({
-        status: 'error',
-        message: 'missing authorization credentials',
-      });
-      // @ts-ignore
-    } else if (err && err.errorCode) {
+    if (err && err.errorCode) {
       // @ts-ignore
       res.status(err.errorCode).json(err.message);
     } else if (err) {

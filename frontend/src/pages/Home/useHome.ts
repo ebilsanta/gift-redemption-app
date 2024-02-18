@@ -31,7 +31,6 @@ const useHome = () => {
       return;
     }
     setHasMoreData(true);
-    setPageNum(0);
     try {
       const { data }: { data: Staff[] } = await staffAPI.searchForStaff(
         query.toUpperCase(),
@@ -39,6 +38,7 @@ const useHome = () => {
         10,
         true
       );
+      setPageNum(1);
       setData(data);
       if (data.length < 10) {
         setHasMoreData(false);

@@ -6,7 +6,6 @@ const router = Router();
 router.get('/', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await getStaff(req.query);
-    console.log(req.query)
     res.json(result);
   } catch (error) {
     next(error);

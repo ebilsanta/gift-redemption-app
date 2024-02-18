@@ -16,7 +16,7 @@ interface DataTableProps {
 }
 
 function DataTable({ data, handleRedeemClicked }: DataTableProps) {
-  const headers = ["Staff Pass ID", "Team Name", "Redeemed At", ""];
+  const headers = ["No.", "Staff Pass ID", "Team Name", "Redeemed At", ""];
 
   return (
     <TableContainer component={Paper}>
@@ -37,8 +37,11 @@ function DataTable({ data, handleRedeemClicked }: DataTableProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
+          {data.map((row, index) => (
             <TableRow key={row.staffPassId}>
+              <TableCell component="th" scope="row">
+                {index + 1}
+              </TableCell>
               <TableCell component="th" scope="row">
                 {row.staffPassId}
               </TableCell>

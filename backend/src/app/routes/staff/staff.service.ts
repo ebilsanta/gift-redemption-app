@@ -4,7 +4,7 @@ import HttpException from '../../models/http-exception.model';
 import { staffMapper, staffRedemptionMapper } from './staff.mapper';
 import { StaffInput } from './staff.model';
 
-const buildPrismaGetQuery = (query: any) => {
+export const buildPrismaGetQuery = (query: any) => {
   const prismaQuery: Prisma.StaffFindManyArgs = {
     where: {
       staffPassId: {
