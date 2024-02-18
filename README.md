@@ -36,6 +36,8 @@ For more information about running locally, please refer to the respective `/bac
 * Caching on the frontend is also with the query prefix string as key.
 
 ## Future roadmap/improvements
+* Add functionality to unredeem gifts. It's tiring to reset the database each time...
 * Improve API response bodies to include more information and be more consistent. For example, returning a standard data field in responses.
 * Add infinite scrolling to frontend, right now users have to perform an additional step of clicking "Load More"
+
 
