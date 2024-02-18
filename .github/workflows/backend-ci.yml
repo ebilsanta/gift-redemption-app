@@ -14,7 +14,7 @@ defaults:
 
 env:
   AWS_REGION: ap-southeast-1
-  ECR_REPOSITORY: gift-redemption
+  ECR_REPOSITORY: gift-repo
   ECS_SERVICE: gift-redemption-svc
   ECS_CLUSTER: gift-redemption-cluster-2
   ECS_TASK_DEFINITION: .aws/gift-redemption-task-def-revision5.json
@@ -37,6 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - uses: actions/checkout@v4
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
