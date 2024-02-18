@@ -63,7 +63,8 @@ const useHome = () => {
       if (data.length < 10) {
         setHasMoreData(false);
       }
-      searchCache.set(searchQuery, data);
+      const prevCache = searchCache.get(searchQuery);
+      searchCache.set(searchQuery, [...prevCache!, ...data]);
     } catch (error) {
       const err = error as AxiosError;
       handleErrMsg(err);
