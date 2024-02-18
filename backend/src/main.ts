@@ -34,6 +34,8 @@ app.use(
 
 const PORT = process.env.PORT || 3000;
 
+console.log("db url: ", process.env.DATABASE_URL)
+
 app.listen(PORT, () => {
   console.info(`server up on port ${PORT}`);
 });
