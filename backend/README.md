@@ -99,10 +99,12 @@ curl --location 'http://localhost:3000/api/redeem' \
 
 ## Getting Started
 
-### Dependencies
+### Prerequisites
 
 * node
 * npm
+* local postgresql server
+    *  You may want to use the official [Postgres Docker image](https://hub.docker.com/_/postgres)
 
 ### Running locally
 * Clone the repo
@@ -119,6 +121,9 @@ cd backend
 ```
 npm i
 ```
+
+* Set up environment variables
+    - Rename .env.sample to .env and fill in the postgres database string in DATABASE_URL
 
 * Generate Prisma client, which will include types based on the database schema
 ```
