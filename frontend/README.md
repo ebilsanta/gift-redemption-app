@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# Gift Redemption Frontend
+## Getting Started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Dependencies
 
-Currently, two official plugins are available:
+* node
+* npm
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Installing
+* Clone the repo
+```
+git clone https://github.com/ebilsanta/govtech-gift-redemption
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Running locally
+* Change directory
+```
+cd frontend
+```
+
+* Install dependencies
+```
+npm i
+```
+
+* Set up environment variables
+```
+Rename .env.sample to .env and fill in the BASE_API_URL
+```
+
+* Launch application
+```
+npm run dev
+```
+
+* It should be live at localhost:5173
+```
+localhost:5173
+```
+
+### Run tests
+Jest is used to write unit tests for all UI components.
+```
+npm run test
+```
+
+![Screenshot 2024-02-19 at 3 09 12 AM](https://github.com/ebilsanta/govtech-gift-redemption/assets/101983505/3eee383e-6867-48fc-8987-fa67e942c5eb)
