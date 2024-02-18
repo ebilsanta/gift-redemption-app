@@ -1,6 +1,9 @@
 # govtech-gift-redemption
 A live demo of the app is available at: https://gift-redemption-frontend.vercel.app/ !
 
+<img width="600" alt="Screenshot 2024-02-19 at 5 39 53 AM" src="https://github.com/ebilsanta/govtech-gift-redemption/assets/101983505/c0542d47-6b99-41e9-aa2c-43094cb575f4">
+
+
 ## About
 This is a gift redemption system that helps distributes gifts to teams. Each team can send a representative to redeem their team's gift, but each gift can only be redeemed once. This system assists with that process by keeping track of redemption data and verifying if the representative can still collect the gift.  
 
