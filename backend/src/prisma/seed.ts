@@ -1,5 +1,6 @@
 import fs from 'fs';
 import readline from 'readline';
+import pLimit from 'p-limit';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '../app/models/http-exception.model';
 import { addStaff } from '../app/routes/staff/staff.service';
@@ -36,13 +37,18 @@ const addStaffFromCSVFile = async (csvFilePath: string) => {
   });
   let isHeader = true;
 
+
+  const limit = pLimit(15); // to limit database operations to 15 concurrent
+
   rl.on('line', async (line: string) => {
     try {
-      if (isHeader) {
-        isHeader = false;
-        return;
-      }
-      await addStaffFromLine(line);
+      await limit(async () => { 
+        if (isHeader) {
+          isHeader = false;
+          return;
+        }
+        await addStaffFromLine(line);
+      });
     } catch (error) {
       console.error('Error processing line:', error);
     }
