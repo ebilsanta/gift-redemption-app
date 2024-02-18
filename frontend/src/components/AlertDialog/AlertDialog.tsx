@@ -16,7 +16,6 @@ interface AlertDialogProps {
 }
 
 function AlertDialog({ open, handleConfirm, handleCancel, text, title }: AlertDialogProps) {
-
   return (
     <Dialog
       open={open}

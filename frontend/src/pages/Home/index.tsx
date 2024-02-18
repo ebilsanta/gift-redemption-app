@@ -1,10 +1,10 @@
 import { Container, Typography } from "@mui/material";
 import useHome from "./useHome";
-import SearchBar from "../../components/SearchBar";
-import PaginatedTable from "../../components/DataTable";
-import AlertDialog from "../../components/AlertDialog";
-import AlertSnackbar from "../../components/AlertSnackbar";
-import LoadButton from "../../components/LoadButton";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import PaginatedTable from "../../components/DataTable/DataTable";
+import AlertDialog from "../../components/AlertDialog/AlertDialog";
+import AlertSnackbar from "../../components/AlertSnackbar/AlertSnackbar";
+import LoadButton from "../../components/LoadButton/LoadButton";
 
 function Home() {
   const {

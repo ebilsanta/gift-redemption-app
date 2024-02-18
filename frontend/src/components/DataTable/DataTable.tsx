@@ -24,7 +24,7 @@ function DataTable({ data, handleRedeemClicked }: DataTableProps) {
         <TableHead>
           <TableRow>
             {headers.map((header, index) =>
-              index > 0 ? (
+              index > 1 ? (
                 <TableCell key={index} align="right">
                   {header}
                 </TableCell>
