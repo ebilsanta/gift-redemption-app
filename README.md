@@ -29,7 +29,7 @@ Built with
 </p>
 
 ## Running locally
-For more information about running locally, please refer to the respective `/backend` and `/frontend` folders for more information.
+For more information about running locally, please refer to the READMEs in the respective `/backend` and `/frontend` folders.
 
 ## Assumptions and considerations
 * An SQL database was chosen for this task as the data was mostly relational instead of hierarchical.
