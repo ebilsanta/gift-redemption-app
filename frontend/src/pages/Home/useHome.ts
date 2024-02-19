@@ -83,6 +83,7 @@ const useHome = () => {
     setOpenDialog(false);
     try {
       await redemptionAPI.redeemGift(selectedStaff.staffPassId);
+      searchCache.clear();
       setSuccessMsg("Gift redeemed successfully!");
       searchForStaff(searchQuery);
     } catch (error) {
