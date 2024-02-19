@@ -82,7 +82,7 @@ Adds redemption data to the staff's team, if they have not redeemed their gift y
     - **error**: (object): Object containing the error message
       - **message** (string)
         - `"staff STAFF_98I2WOQU7VA does not exist"`
-   https://gift-redemption-backend.fly.dev/
+
 #### Sample Request
 ```
 curl --location 'https://gift-redemption-backend.fly.dev/api/redeem' \
