@@ -1,4 +1,7 @@
 # Gift Redemption Backend
+## Base Url
+https://gift-redemption-backend.fly.dev
+
 ## Endpoints
 ### Get staff
 Returns a list of staff details with options for searching by staffPassId and pagination
@@ -12,7 +15,7 @@ Returns a list of staff details with options for searching by staffPassId and pa
 - **prefix** (string): The staffPassId search query prefix. Can be omitted to return all results.
 - **offset** (integer): An optional integer representing how many query results to offset in the response. Defaults to 0.
 - **limit** (integer): An optional integer representing how many results to return. Defaults to 10
-- **include_redeemed** (boolean): 'true' indicates that the `redeemedAt` timestamps of the staff's team will be returned in the query. This results in an additional database query.
+- **include_redeemed** (boolean): 'true' indicates that the `redeemedAt` timestamps of the staff's team will be returned in the query. 
 
 #### Responses
 - **200 OK**
@@ -26,7 +29,7 @@ Returns a list of staff details with options for searching by staffPassId and pa
 
 #### Sample Request
 ```
-curl --location 'http://localhost:3000/api/staff?prefix=STAFF_&limit=2&offset=2&include_redeemed=true'
+curl --location 'https://gift-redemption-backend.fly.dev/api/staff?prefix=STAFF_&limit=2&offset=2&include_redeemed=true'
 ```
 
 #### Sample Response (JSON Body)
@@ -79,13 +82,13 @@ Adds redemption data to the staff's team, if they have not redeemed their gift y
     - **error**: (object): Object containing the error message
       - **message** (string)
         - `"staff STAFF_98I2WOQU7VA does not exist"`
-   
+   https://gift-redemption-backend.fly.dev/
 #### Sample Request
 ```
-curl --location 'http://localhost:3000/api/redeem' \
+curl --location 'https://gift-redemption-backend.fly.dev/api/redeem' \
 --header 'Content-Type: application/json' \
 --data '{
-    "staffPassId": "STAFF_98I2WOQU7VA"
+    "staffPassId": "STAFF_98I2WOQU7VAU"
 }'
 ```
 #### Sample Response
