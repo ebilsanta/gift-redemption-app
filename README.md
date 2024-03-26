@@ -1,4 +1,4 @@
-# gt-takehome
+# gift-redemption-app
 A live demo of the app is available at: https://gift-redemption-frontend.vercel.app/ !
 
 <img width="600" alt="Screenshot 2024-02-19 at 5 39 53 AM" src="https://github.com/ebilsanta/govtech-gift-redemption/assets/101983505/c0542d47-6b99-41e9-aa2c-43094cb575f4">
