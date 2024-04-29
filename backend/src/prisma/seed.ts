@@ -22,47 +22,21 @@ const createStaffTeam = async (input: StaffInput) => {
 
 const addStaffFromLine = async (line: string) => {
   const [staffPassId, teamName, createdAt] = line.split(',');
+  const [role, staffId] = staffPassId.split("_");
   await createStaffTeam({
-    staffPassId,
+    staffId,
+    role,
     teamName,
     createdAt: parseInt(createdAt),
   });
 };
 
 const addStaffFromCSVFile = async (csvFilePath: string) => {
-  const readStream = fs.createReadStream(csvFilePath);
-  const rl = readline.createInterface({
-    input: readStream,
-    crlfDelay: Infinity,
-  });
-  let isHeader = true;
-
-
-  const limit = pLimit(15); // to limit database operations to 15 concurrent
-
-  rl.on('line', async (line: string) => {
-    try {
-      await limit(async () => { 
-        if (isHeader) {
-          isHeader = false;
-          return;
-        }
-        await addStaffFromLine(line);
-      });
-    } catch (error) {
-      console.error('Error processing line:', error);
-    }
-  });
-
-  rl.on('error', (error) => {
-    console.error('Error reading CSV file:', error);
-  });
-
-  rl.on('close', () => {
-    console.log('Finish reading CSV file.');
-    readStream.close();
-    rl.close();
-  });
+  const data = fs.readFileSync(csvFilePath).toString();
+  const lines = data.split("\n");
+  for(let i = 1; i < lines.length; i++) {
+    await addStaffFromLine(lines[i]);
+  }
 };
 
 const main = async () => {

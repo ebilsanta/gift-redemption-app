@@ -9,11 +9,20 @@ datasource db {
 
 model Staff {
   id Int @id @default(autoincrement())
-  staffPassId String @unique @map("staff_pass_id")
+  staffId String @unique @map("staff_id")
+  role Role @relation(fields: [roleId], references: [id])
+  roleId Int @map("role_id")
   teamName String @map("team_name")
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("staff")
+}
+
+model Role {
+  id Int @id @default(autoincrement())
+  role String @unique @map("role")
+  staffs Staff[]
+  @@map("role")
 }
 
 model Redemption {

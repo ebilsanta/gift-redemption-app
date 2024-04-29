@@ -11,7 +11,7 @@ export const createRedemption = async (body: any) => {
 
   const staff = await prisma.staff.findUnique({
     where: {
-      staffPassId: staffPassId,
+      staffId: staffPassId,
     },
   });
 
