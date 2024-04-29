@@ -110,10 +110,10 @@ const useHome = () => {
   useEffect(() => {
     if (searchQuery.length === 0){
       searchForStaff("");
-    } else if (searchQuery.length >= 4) {
+    } else if (searchQuery.length >= 2) {
       const timer = setTimeout(() => {
         searchForStaff(searchQuery);
-      }, 1500);
+      }, 1000);
   
       return () => clearTimeout(timer);
     }
