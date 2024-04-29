@@ -16,7 +16,7 @@ interface DataTableProps {
 }
 
 function DataTable({ data, handleRedeemClicked }: DataTableProps) {
-  const headers = ["No.", "Staff Pass ID", "Team Name", "Redeemed At", ""];
+  const headers = ["No.", "Staff Pass ID", "Role", "Team Name", "Redeemed At", ""];
 
   return (
     <TableContainer component={Paper}>
@@ -44,6 +44,9 @@ function DataTable({ data, handleRedeemClicked }: DataTableProps) {
               </TableCell>
               <TableCell component="th" scope="row">
                 {row.staffPassId}
+              </TableCell>
+              <TableCell align="right">
+                {row.role}
               </TableCell>
               <TableCell align="right">{row.teamName}</TableCell>
               <TableCell align="right">
