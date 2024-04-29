@@ -12,20 +12,20 @@ describe("SearchBar Component", () => {
 
   test("renders TextField with correct label", () => {
     const { getByLabelText } = render(<SearchBar onSearch={onSearchMock} />);
-    const searchTextField = getByLabelText("Search for staff");
+    const searchTextField = getByLabelText("Search for staff by id or role");
     expect(searchTextField).toBeInTheDocument();
   });
 
   test("calls onSearch with input value when text changes", () => {
     const { getByLabelText } = render(<SearchBar onSearch={onSearchMock} />);
-    const searchTextField = getByLabelText("Search for staff");
+    const searchTextField = getByLabelText("Search for staff by id or role");
     fireEvent.change(searchTextField, { target: { value: "John" } });
     expect(onSearchMock).toHaveBeenCalledWith("John");
   });
 
   test("TextField value changes when user types", () => {
     const { getByLabelText } = render(<SearchBar onSearch={onSearchMock} />);
-    const searchTextField = getByLabelText("Search for staff");
+    const searchTextField = getByLabelText("Search for staff by id or role");
     fireEvent.change(searchTextField, { target: { value: "John" } });
     expect(searchTextField.value).toBe("John");
   });
