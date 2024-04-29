@@ -1,6 +1,4 @@
 import fs from 'fs';
-import readline from 'readline';
-import pLimit from 'p-limit';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '../app/models/http-exception.model';
 import { addStaff } from '../app/routes/staff/staff.service';
